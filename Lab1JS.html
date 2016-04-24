@@ -1,0 +1,137 @@
+<html>
+<head>
+	<title>Lab JS</title>
+	<meta charset="UTF-8">
+
+	<style type="text/css">
+
+	table,th,td{
+		border: 1px solid black;
+		font-size: 1.2em;
+		text-align: center;		
+	}
+
+	td{
+		padding: 10px;
+	}
+
+	#Q1{
+		border: 1px solid black;
+		padding: 10px;
+		width: 50%;
+	}
+
+	.centralizar{
+		text-align: center;
+	}
+
+	span{
+		font-size: 1.5em;
+	}
+
+	#ErrosQ1{
+		color: red;
+		font-size: 1em;
+	}
+
+	button{
+		font-size: 1.2em;
+		padding: 10px 10px 10px 10px;
+	}
+
+	</style>
+
+</head>
+<body>
+
+<h1 class='centralizar'>Laboratorio 1: Javascript</h1>
+
+<div class="centralizar">
+	<h4>Instituto Federal de Ciência, Tecnologia e Educação do Maranhão - IFMA</h4>
+	<h4>Vitor Daniel V. Queiroz - SI1221030-21</h4>
+	<h4>Disciplina: Linguagem de Programaçao Web</h4>
+</div>
+
+	<div id="Q1">
+
+	<h2> Questao 1</h2>
+	<table>
+		<th>Especificação</th>
+		<th>Código</th>
+		<th>Preço</th>
+		<tr>
+			<td>Cachorro Quente</td>
+			<td>100</td>
+			<td>1,20</td>
+		</tr>
+		<tr>
+			<td>Bauru simples</td>
+			<td>101</td>
+			<td>1,30</td>
+		</tr>
+		<tr>
+			<td>Bauru com ovo</td>
+			<td>102</td>
+			<td>1,50</td>
+		</tr>
+		<tr>
+			<td>Hamburguer</td>
+			<td>103</td>
+			<td>1,20</td>
+		</tr>
+		<tr>
+			<td>CheeseBurger</td>
+			<td>104</td>
+			<td>1,30</td>
+		</tr>
+		<tr>
+			<td>Refrigerante</td>
+			<td>105</td>
+			<td>1,00</td>
+		</tr>
+	</table>
+
+	</body>
+
+	<br>
+		<span id="ErrosQ1"></span>
+	<br><br>
+	<span> Codigo do Item: </span> <input id="cdgItem" type="text"></input> <br><br>
+	<span> Quantidade Item: </span> <input id="qtdItem" type="text"></input> <br><br>
+	<button onclick="calcularLanche()"> Calcular </button><br><br>
+
+	</span><span id="valorLanche"></span>
+
+</div>
+
+</html>
+
+
+<script type="text/javascript">
+	 function calcularLanche(){
+	 	document.getElementById("ErrosQ1").textContent = '';
+	 	document.getElementById("valorLanche").textContent = '';
+	 	var cdgItem = document.getElementById('cdgItem').value;
+	 	var qtdItem = document.getElementById('qtdItem').value;
+	 	if(cdgItem != '' && qtdItem != '' && qtdItem > 0){
+
+		 	var arrayLanches = { "100": 1.20,
+		 						 "101": 1.30,
+		 						 "102": 1.50,
+		 						 "103": 1.20,
+		 						 "104": 1.30,
+		 						 "105":	1.00
+		 						};
+
+		 	if(arrayLanches[cdgItem] != undefined){
+		 		var valorLanche = arrayLanches[cdgItem].toFixed(2) * qtdItem;
+		 		document.getElementById("valorLanche").textContent = 'Valor a ser pago: ' +valorLanche.toFixed(2) + ' reais';
+		 	}else{
+		 		document.getElementById("ErrosQ1").textContent = 'Codigo de lanche não cadastrado';
+		 	}
+	 	}else{
+	 		document.getElementById("ErrosQ1").textContent = 'Preencha os campos Corretamente.'	 		
+	 	}
+
+	 }
+</script>
