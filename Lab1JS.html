@@ -11,14 +11,15 @@
 		text-align: center;		
 	}
 
-	td{
+	td,th{
 		padding: 10px;
 	}
 
-	#Q1{
+	#Q1,#Q2{
 		border: 1px solid black;
 		padding: 10px;
-		width: 50%;
+		width: 40%;
+		float: left;
 	}
 
 	.centralizar{
@@ -54,60 +55,91 @@
 
 	<div id="Q1">
 
-	<h2> Questao 1</h2>
-	<table>
-		<th>Especificação</th>
-		<th>Código</th>
-		<th>Preço</th>
-		<tr>
-			<td>Cachorro Quente</td>
-			<td>100</td>
-			<td>1,20</td>
-		</tr>
-		<tr>
-			<td>Bauru simples</td>
-			<td>101</td>
-			<td>1,30</td>
-		</tr>
-		<tr>
-			<td>Bauru com ovo</td>
-			<td>102</td>
-			<td>1,50</td>
-		</tr>
-		<tr>
-			<td>Hamburguer</td>
-			<td>103</td>
-			<td>1,20</td>
-		</tr>
-		<tr>
-			<td>CheeseBurger</td>
-			<td>104</td>
-			<td>1,30</td>
-		</tr>
-		<tr>
-			<td>Refrigerante</td>
-			<td>105</td>
-			<td>1,00</td>
-		</tr>
-	</table>
+		<h2> Questao 1</h2>
+		<table>
+			<th>Especificação</th>
+			<th>Código</th>
+			<th>Preço</th>
+			<tr>
+				<td>Cachorro Quente</td>
+				<td>100</td>
+				<td>1,20</td>
+			</tr>
+			<tr>
+				<td>Bauru simples</td>
+				<td>101</td>
+				<td>1,30</td>
+			</tr>
+			<tr>
+				<td>Bauru com ovo</td>
+				<td>102</td>
+				<td>1,50</td>
+			</tr>
+			<tr>
+				<td>Hamburguer</td>
+				<td>103</td>
+				<td>1,20</td>
+			</tr>
+			<tr>
+				<td>CheeseBurger</td>
+				<td>104</td>
+				<td>1,30</td>
+			</tr>
+			<tr>
+				<td>Refrigerante</td>
+				<td>105</td>
+				<td>1,00</td>
+			</tr>
+		</table>
 
-	</body>
+		<br>
+			<span id="ErrosQ1"></span>
+		<br><br>
+		<span> Codigo do Item: </span> <input id="cdgItem" type="number"></input> <br><br>
+		<span> Quantidade Item: </span> <input id="qtdItem" type="number"></input> <br><br>
+		<button onclick="calcularLanche()"> Calcular </button><br><br>
 
-	<br>
-		<span id="ErrosQ1"></span>
-	<br><br>
-	<span> Codigo do Item: </span> <input id="cdgItem" type="text"></input> <br><br>
-	<span> Quantidade Item: </span> <input id="qtdItem" type="text"></input> <br><br>
-	<button onclick="calcularLanche()"> Calcular </button><br><br>
+		</span><span id="valorLanche"></span>
 
-	</span><span id="valorLanche"></span>
+	</div>
 
-</div>
+	<div id="Q2">
+		<h2> Questao 2</h2>
 
+		<span> Numero 1: </span> <input id="num1" type="number"></input> <br><br>
+		<span> Numero 2: </span> <input id="num2" type="number"></input> <br><br>
+		<button onclick="tabelaOperacoes()"> Gerar Tabela </button><br><br>
+
+		<table>
+			<th>Operação</th>
+			<th>Valor</th>
+			<tr id="linhaSoma">
+				<td id="operacaoSoma"></td>
+				<td id="resultadoSoma"></td>
+			</tr>
+			<tr id="linhaMult">
+				<td id="operacaoMult"></td>
+				<td id="resultadoMult"></td>
+			</tr>
+			<tr id="linhaDiv">
+				<td id="operacaoDiv"></td>
+				<td id="resultadoDiv"></td>
+			</tr>
+			<tr id="linhaRest">
+				<td id="operacaoRest"></td>
+				<td id="resultadoRest"></td>
+			</tr>
+
+		</table>
+
+	</div>
+
+</body>
 </html>
 
 
 <script type="text/javascript">
+
 	 function calcularLanche(){
 	 	document.getElementById("ErrosQ1").textContent = '';
 	 	document.getElementById("valorLanche").textContent = '';
@@ -132,6 +164,33 @@
 	 	}else{
 	 		document.getElementById("ErrosQ1").textContent = 'Preencha os campos Corretamente.'	 		
 	 	}
+	 }
+
+	 function tabelaOperacoes(){
+	 	var num1 = document.getElementById('num1').value;
+	 	var num2 = document.getElementById('num2').value;
+
+	 	if(num1 != '' && num2 != ''){
+		 	num1 = parseFloat(num1);
+		 	num2 = parseFloat(num2);
+
+		 	document.getElementById("operacaoSoma").textContent = num1 + ' + ' + num2;
+		 	document.getElementById("resultadoSoma").textContent = num1 + num2;
+
+		 	document.getElementById("operacaoMult").textContent = num1 + ' * ' + num2;
+		 	document.getElementById("resultadoMult").textContent = num1 * num2;
+
+		 	document.getElementById("operacaoDiv").textContent = num1 + ' / ' + num2;
+		 	document.getElementById("resultadoDiv").textContent = num1 / num2;
+
+		 	document.getElementById("operacaoRest").textContent = num1 + ' % ' + num2;
+		 	document.getElementById("resultadoRest").textContent = num1 % num2;	 		
+	 	}else{
+	 		alert('Preencha todos os campos com os Numeros para gerar a Tabela de Operações.');
+	 	}
+
+
 
 	 }
+
 </script>
