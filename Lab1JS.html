@@ -15,11 +15,12 @@
 		padding: 10px;
 	}
 
-	#Q1,#Q2{
+	#Q1,#Q2,#Q3,#Q4,#Q5,#Q6{
 		border: 1px solid black;
 		padding: 10px;
-		width: 40%;
+		width: 30%;
 		float: left;
+		margin: 5px;
 	}
 
 	.centralizar{
@@ -131,6 +132,18 @@
 			</tr>
 
 		</table>
+	</div>
+
+	<div id="Q3">
+		<h2> Questao 3</h2>
+
+		<form>
+			<span> Quantidade(KhW): </span> <input id="qtdKhw" type="number"></input> <br><br>
+			<span> Valor Unit.(KhW): </span> <input id="valorUn" type="number"></input> <br><br>
+			<button type="button" onclick="calcularConta()"> Calcular Conta</button>
+		</form>
+
+		<span id="valorConta"></span>
 
 	</div>
 
@@ -186,11 +199,35 @@
 		 	document.getElementById("operacaoRest").textContent = num1 + ' % ' + num2;
 		 	document.getElementById("resultadoRest").textContent = num1 % num2;	 		
 	 	}else{
-	 		alert('Preencha todos os campos com os Numeros para gerar a Tabela de Operações.');
+	 		alert('Preencha todos os campos com os numeros para gerar a Tabela de Operações.');
 	 	}
-
-
-
 	 }
+
+	 function calcularConta(){
+	 	document.getElementById("valorConta").textContent = '';
+		 qtdKhw = document.getElementById('qtdKhw').value;
+		 valorUn = document.getElementById('valorUn').value;
+
+	 	if(qtdKhw != '' && valorUn != ''){
+	 		qtdKhw = parseFloat(qtdKhw);
+	 		valorUn = parseFloat(valorUn);
+
+	 		if(qtdKhw >= 100 && qtdKhw < 200){
+	 			valorUn += valorUn * 0.25;
+	 		}
+	 		if(qtdKhw >= 200){
+	 			valorUn += valorUn * 0.50;
+	 		}
+
+	 		valorConta = qtdKhw * valorUn;
+	 		
+	 		document.getElementById("valorConta").textContent = 'Valor da conta: ' +valorConta.toFixed(2) + ' reais';
+
+	 	}else{
+	 		alert('Preencha todos os campos com os numeros para calcular a conta.')
+	 	}
+	 }
+
+
 
 </script>
