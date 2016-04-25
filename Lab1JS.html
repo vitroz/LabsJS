@@ -394,39 +394,45 @@
 	 	div.appendChild(button);
 
 	 	button.onclick = function Jogar(){
+	 		var numeroUsuario = document.getElementById("numeroUsuario").value;
+	 		if(numeroUsuario != ''){
 
-		 	var numeroPc = Math.floor((Math.random() * 999) + 0);
-		 	var numeroUsuario = document.getElementById("numeroUsuario").value;
-		 	numeroUsuario = parseFloat(numeroUsuario);
+			 	var numeroPc = Math.floor((Math.random() * 999) + 0);
+			 	var numeroUsuario = document.getElementById("numeroUsuario").value;
+			 	numeroUsuario = parseFloat(numeroUsuario);
 
-			document.getElementById("inputPc").textContent = 'Numero randômico escolhido pelo PC: ' + numeroPc;
-			resultado = numeroUsuario + numeroPc;
-			document.getElementById("resultadoJogo").textContent = 'Soma: ' + numeroUsuario + ' + ' + numeroPc + ' = ' + resultado;
+				document.getElementById("inputPc").textContent = 'Numero randômico escolhido pelo PC: ' + numeroPc;
+				resultado = numeroUsuario + numeroPc;
+				document.getElementById("resultadoJogo").textContent = 'Soma: ' + numeroUsuario + ' + ' + numeroPc + ' = ' + resultado;
 
 
-			if(usuarioEscolha == 'par' && checkParOuImpar(resultado)){
-				alert('Usuario Venceu!!');
-				contVitoriasUser = contVitoriasUser + 1;
-				document.getElementById("contVitoriasUser").textContent = 'Você :' + contVitoriasUser; 
-			}else if(usuarioEscolha == 'impar' && !checkParOuImpar(resultado)){
-				alert('Usuario Venceu!!');
-				contVitoriasUser = contVitoriasUser + 1;
-				document.getElementById("contVitoriasUser").textContent = 'Você :' + contVitoriasUser; 
-			}
-			
-			else{
-				alert('PC Venceu!!');
-				contVitoriasPC = contVitoriasPC + 1;
-				document.getElementById("contVitoriasPC").textContent = 'PC :' +contVitoriasPC; 
-			}
+				if(usuarioEscolha == 'par' && checkParOuImpar(resultado)){
+					alert('Usuario Venceu!!');
+					contVitoriasUser = contVitoriasUser + 1;
+					document.getElementById("contVitoriasUser").textContent = 'Você :' + contVitoriasUser; 
+				}else if(usuarioEscolha == 'impar' && !checkParOuImpar(resultado)){
+					alert('Usuario Venceu!!');
+					contVitoriasUser = contVitoriasUser + 1;
+					document.getElementById("contVitoriasUser").textContent = 'Você :' + contVitoriasUser; 
+				}
+				
+				else{
+					alert('PC Venceu!!');
+					contVitoriasPC = contVitoriasPC + 1;
+					document.getElementById("contVitoriasPC").textContent = 'PC :' +contVitoriasPC; 
+				}
 
-			if(contVitoriasUser == contVitoriasPC){
-				document.getElementById("Q6").style["background-color"] = "white";
-			}else if(contVitoriasUser > contVitoriasPC){
-				document.getElementById("Q6").style["background-color"] = "#66FF33"; //verde
-			}else if(contVitoriasUser < contVitoriasPC){
-				document.getElementById("Q6").style["background-color"] = "#BB2828"; //vermelho
-			}
+				if(contVitoriasUser == contVitoriasPC){
+					document.getElementById("Q6").style["background-color"] = "white";
+				}else if(contVitoriasUser > contVitoriasPC){
+					document.getElementById("Q6").style["background-color"] = "#66FF33"; //verde
+				}else if(contVitoriasUser < contVitoriasPC){
+					document.getElementById("Q6").style["background-color"] = "#BB2828"; //vermelho
+				}
+
+	 		}else{
+	 			alert('Informe um numero para jogar par ou impar.')
+	 		}
 
 		}	
 	 }
