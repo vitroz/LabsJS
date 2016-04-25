@@ -1,45 +1,62 @@
 <html>
 <head>
-	<title>Lab JS</title>
+	<title>Lab 1 JS</title>
 	<meta charset="UTF-8">
 
 	<style type="text/css">
 
-	table,th,td{
-		border: 1px solid black;
-		font-size: 1.2em;
-		text-align: center;		
-	}
+		table,th,td{
+			border: 1px solid black;
+			font-size: 1.2em;
+			text-align: center;		
+		}
 
-	td,th{
-		padding: 10px;
-	}
+		#calculadora{
+			border: 0px solid black;
+		}
 
-	#Q1,#Q2,#Q3,#Q4,#Q5,#Q6{
-		border: 1px solid black;
-		padding: 10px;
-		width: 30%;
-		float: left;
-		margin: 5px;
-	}
+		td,th{
+			padding: 10px;
+		}
 
-	.centralizar{
-		text-align: center;
-	}
+		#Q1,#Q2,#Q3,#Q4,#Q5,#Q6{
+			border: 1px solid black;
+			padding: 25px;
+			width: 28%;
+			float: left;
+			margin: 5px;
+		}
 
-	span{
-		font-size: 1.5em;
-	}
+		.centralizar{
+			text-align: center;
+		}
 
-	#ErrosQ1{
-		color: red;
-		font-size: 1em;
-	}
+		.pull-right{
+			float: right;
+		}
 
-	button{
-		font-size: 1.2em;
-		padding: 10px 10px 10px 10px;
-	}
+		span{
+			font-size: 1.5em;
+		}
+
+		#ErrosQ1{
+			color: red;
+			font-size: 1em;
+		}
+
+		button{
+			font-size: 1.2em;
+			padding: 10px 10px 10px 10px;
+		}
+
+		select{
+			margin-left: 105px;
+		}
+
+		#numeroUsuario{
+			display: block;
+			margin-bottom: 15px;
+		}
 
 	</style>
 
@@ -56,7 +73,7 @@
 
 	<div id="Q1">
 
-		<h2> Questao 1</h2>
+		<h2> Questão 1</h2>
 		<table>
 			<th>Especificação</th>
 			<th>Código</th>
@@ -105,7 +122,7 @@
 	</div>
 
 	<div id="Q2">
-		<h2> Questao 2</h2>
+		<h2> Questão 2</h2>
 
 		<span> Numero 1: </span> <input id="num1" type="number"></input> <br><br>
 		<span> Numero 2: </span> <input id="num2" type="number"></input> <br><br>
@@ -135,7 +152,7 @@
 	</div>
 
 	<div id="Q3">
-		<h2> Questao 3</h2>
+		<h2> Questão 3</h2>
 
 		<form>
 			<span> Quantidade(KhW): </span> <input id="qtdKhw" type="number"></input> <br><br>
@@ -145,6 +162,61 @@
 
 		<span id="valorConta"></span>
 
+	</div>
+
+	<div id="Q4">
+		<h2> Questão 4</h2>
+
+		<input id="data" onchange="converterData()" type="date"></input><br>
+
+		<span id="dataExtenso"></span>
+
+	</div>
+
+	<div id="Q5">
+		<h2> Questão 5</h2>
+		<input readonly id="resultadoCalc"> </input><br><br>
+		<select onclick="setNumero(this.value)">
+			<option>+</option>
+			<option>-</option>
+			<option>/</option>
+			<option>*</option>
+		</select><br>
+		<table id="calculadora">
+			<tr>
+				<button value='1' onclick="setNumero(this.value)">1</button>
+				<button value='2' onclick="setNumero(this.value)">2</button>
+				<button value='3' onclick="setNumero(this.value)">3</button><br>
+			</tr>
+			<tr>
+				<button value='4' onclick="setNumero(this.value)">4</button>
+				<button value='5' onclick="setNumero(this.value)">5</button>
+				<button value='6' onclick="setNumero(this.value)">6</button><br>
+			</tr>
+			<tr>
+				<button value='7' onclick="setNumero(this.value)">7</button>
+				<button value='8' onclick="setNumero(this.value)">8</button>
+				<button value='9' onclick="setNumero(this.value)">9</button><br>
+			</tr>
+			<tr>
+				<button value='0' onclick="setNumero(this.value)">0</button>
+				<button value='.' onclick="setNumero(this.value)">.</button>
+				<button onclick="calculadora()">=</button>
+				<button onclick="limparCalc(this.value)">Limpar</button>
+			</tr>
+		</table>
+	</div>
+
+	<div id="Q6">
+		<h2> Questão 6</h2>
+		<span> Escolha: </span><br>
+		<button onclick="ParOuImpar(this.value)" value="par">Par </button> ou 
+		<button onclick="ParOuImpar(this.value)" value="impar"> Impar</button><br>
+
+		<div id='inputUsuario'></div>
+		<span id="inputPc"></span>
+		<div id='resultadoJogo'></div>
+		<div id='placarJogo'></div>
 	</div>
 
 </body>
@@ -228,6 +300,101 @@
 	 	}
 	 }
 
+	 function converterData(){
+	 	data = document.getElementById('data').value;
+	 	data = data.split('-');
+	 	dia = data[2];
+	 	mes = data[1];
+	 	ano = data[0];
 
+	 	dicMeses = {'01' : 'Janeiro', '02' : 'Fevereiro', '03' : 'Março' , '04' : 'Abril', '05' : 'Maio', 
+	 				'06' : 'Junho', '07' : 'Julho', '08' : 'Agosto', '09' : 'Setembro', '10' : 'Outubro', 
+	 				'11' : 'Novembro','12' : 'Dezembro',}
+
+	 	document.getElementById("dataExtenso").textContent = dia + ' de ' + dicMeses[mes] + ' de ' + ano;
+	 }
+
+	 function setNumero(valorBotao){
+	 	document.getElementById("resultadoCalc").value += valorBotao + '';
+	 }
+	 function limparCalc(limpeza){
+	 	document.getElementById("resultadoCalc").value = '';
+	 }
+
+	 function calculadora(){
+	 	var operacao = document.getElementById("resultadoCalc").value;
+
+	 	try{
+	 		resultado = eval(operacao);
+	 	}catch(e){
+	 		 if (e instanceof ReferenceError) {
+		        resultado = 'Operação Invalida'
+		    }
+	 	}
+	
+	 	document.getElementById("resultadoCalc").value = resultado;
+	 }
+
+	 function checkParOuImpar(numero){
+	 	if(numero%2 == 0){
+	 		return true;
+	 	}else{
+	 		return false;
+	 	}
+	 }
+
+	 function ParOuImpar(opcao){
+
+	 	document.getElementById('inputUsuario').innerHTML = '';
+
+	 	var usuarioEscolha = '';
+	 	var pc = '';
+
+	 	if(opcao == 'par'){
+	 		usuarioEscolha = 'par';
+	 		pc = 'impar';
+	 	}else{
+	 		usuarioEscolha = 'impar'
+	 		pc = 'par';
+	 	}
+
+
+	 	var div = document.getElementById('inputUsuario');
+	 	var input = document.createElement('input');
+	 	input.id = 'numeroUsuario';
+	 	var span = document.createElement('span');
+	 	var button = document.createElement('button');
+
+	 	span.innerHTML = 'Escolha um numero para Jogar:';
+	 	input.innerHTML = '';
+	 	input.type = 'number';
+	 	button.innerHTML = 'Jogar';
+
+	 	div.appendChild(span);
+	 	div.appendChild(input);
+	 	div.appendChild(button);
+
+	 	button.onclick = function Jogar(){
+
+		 	var numeroPc = Math.floor((Math.random() * 999) + 0);
+		 	var numeroUsuario = document.getElementById("numeroUsuario").value;
+		 	numeroUsuario = parseFloat(numeroUsuario);
+
+			console.log(numeroPc);	
+			resultado = numeroUsuario + numeroPc;
+			console.log(resultado);
+
+			if(usuarioEscolha == 'par' && checkParOuImpar(resultado)){
+				alert('Usuario Venceu!!');
+			}else if(usuarioEscolha == 'impar' && !checkParOuImpar(resultado)){
+				alert('Usuario Venceu!!');
+			}
+			
+			else{
+				alert('PC Venceu!!');
+			}
+
+		}	
+	 }
 
 </script>
