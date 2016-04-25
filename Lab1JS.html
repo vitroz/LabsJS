@@ -58,6 +58,14 @@
 			margin-bottom: 15px;
 		}
 
+		#inputPc{
+			font-size: 0.9em;
+		}
+
+		#resultadoJogo{
+			color: green;
+		}
+
 	</style>
 
 </head>
@@ -210,13 +218,17 @@
 	<div id="Q6">
 		<h2> Questão 6</h2>
 		<span> Escolha: </span><br>
-		<button onclick="ParOuImpar(this.value)" value="par">Par </button> ou 
-		<button onclick="ParOuImpar(this.value)" value="impar"> Impar</button><br>
+		<button onclick="ParOuImpar(this.value)" id="btnPar" value="par">Par </button> ou 
+		<button onclick="ParOuImpar(this.value)" id="btnImpar" value="impar"> Impar</button><br>
 
 		<div id='inputUsuario'></div>
 		<span id="inputPc"></span>
 		<div id='resultadoJogo'></div>
-		<div id='placarJogo'></div>
+		<div id='placarJogo'>
+			<div class="centralizar"> <span>Placar</span> </div>
+			<div class="centralizar" id="contVitoriasUser"></div>
+			<div class="centralizar" id="contVitoriasPC"></div>
+		</div>
 	</div>
 
 </body>
@@ -343,6 +355,9 @@
 	 	}
 	 }
 
+	 window.contVitoriasUser = 0;
+	 window.contVitoriasPC = 0;
+
 	 function ParOuImpar(opcao){
 
 	 	document.getElementById('inputUsuario').innerHTML = '';
@@ -352,9 +367,13 @@
 
 	 	if(opcao == 'par'){
 	 		usuarioEscolha = 'par';
+	 		document.getElementById("btnPar").style["background-color"] = 'C5C5C5';
+	 		document.getElementById("btnImpar").style["background-color"] = '';
 	 		pc = 'impar';
 	 	}else{
 	 		usuarioEscolha = 'impar'
+	 		document.getElementById("btnPar").style["background-color"] = '';
+	 		document.getElementById("btnImpar").style["background-color"] = 'C5C5C5';
 	 		pc = 'par';
 	 	}
 
@@ -380,18 +399,33 @@
 		 	var numeroUsuario = document.getElementById("numeroUsuario").value;
 		 	numeroUsuario = parseFloat(numeroUsuario);
 
-			console.log(numeroPc);	
+			document.getElementById("inputPc").textContent = 'Numero randômico escolhido pelo PC: ' + numeroPc;
 			resultado = numeroUsuario + numeroPc;
-			console.log(resultado);
+			document.getElementById("resultadoJogo").textContent = 'Soma: ' + numeroUsuario + ' + ' + numeroPc + ' = ' + resultado;
+
 
 			if(usuarioEscolha == 'par' && checkParOuImpar(resultado)){
 				alert('Usuario Venceu!!');
+				contVitoriasUser = contVitoriasUser + 1;
+				document.getElementById("contVitoriasUser").textContent = 'Você :' + contVitoriasUser; 
 			}else if(usuarioEscolha == 'impar' && !checkParOuImpar(resultado)){
 				alert('Usuario Venceu!!');
+				contVitoriasUser = contVitoriasUser + 1;
+				document.getElementById("contVitoriasUser").textContent = 'Você :' + contVitoriasUser; 
 			}
 			
 			else{
 				alert('PC Venceu!!');
+				contVitoriasPC = contVitoriasPC + 1;
+				document.getElementById("contVitoriasPC").textContent = 'PC :' +contVitoriasPC; 
+			}
+
+			if(contVitoriasUser == contVitoriasPC){
+				document.getElementById("Q6").style["background-color"] = "white";
+			}else if(contVitoriasUser > contVitoriasPC){
+				document.getElementById("Q6").style["background-color"] = "#66FF33"; //verde
+			}else if(contVitoriasUser < contVitoriasPC){
+				document.getElementById("Q6").style["background-color"] = "#BB2828"; //vermelho
 			}
 
 		}	
