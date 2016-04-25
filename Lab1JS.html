@@ -12,7 +12,13 @@
 		}
 
 		#calculadora{
+			border: 1px solid black;
+		}
+
+		#calculadora td{
 			border: 0px solid black;
+			padding: 2px;
+			font-size: 0.9em;
 		}
 
 		td,th{
@@ -191,27 +197,27 @@
 			<option>*</option>
 		</select><br>
 		<table id="calculadora">
-			<tr>
-				<button value='1' onclick="setNumero(this.value)">1</button>
-				<button value='2' onclick="setNumero(this.value)">2</button>
-				<button value='3' onclick="setNumero(this.value)">3</button><br>
-			</tr>
-			<tr>
-				<button value='4' onclick="setNumero(this.value)">4</button>
-				<button value='5' onclick="setNumero(this.value)">5</button>
-				<button value='6' onclick="setNumero(this.value)">6</button><br>
-			</tr>
-			<tr>
-				<button value='7' onclick="setNumero(this.value)">7</button>
-				<button value='8' onclick="setNumero(this.value)">8</button>
-				<button value='9' onclick="setNumero(this.value)">9</button><br>
-			</tr>
-			<tr>
-				<button value='0' onclick="setNumero(this.value)">0</button>
-				<button value='.' onclick="setNumero(this.value)">.</button>
-				<button onclick="calculadora()">=</button>
-				<button onclick="limparCalc(this.value)">Limpar</button>
-			</tr>
+				<tr>
+					<td><button value='1' onclick="setNumero(this.value)">1</button></td>
+					<td><button value='2' onclick="setNumero(this.value)">2</button></td>
+					<td><button value='3' onclick="setNumero(this.value)">3</button><br></td>
+				</tr>
+				<tr>
+					<td><button value='4' onclick="setNumero(this.value)">4</button></td>
+					<td><button value='5' onclick="setNumero(this.value)">5</button></td>
+					<td><button value='6' onclick="setNumero(this.value)">6</button></td><br>
+				</tr>
+				<tr>
+					<td><button value='7' onclick="setNumero(this.value)">7</button></td>
+					<td><button value='8' onclick="setNumero(this.value)">8</button></td>
+					<td><button value='9' onclick="setNumero(this.value)">9</button></td><br>
+				</tr>
+				<tr>
+					<td><button value='0' onclick="setNumero(this.value)">0</button></td>
+					<td><button value='.' onclick="setNumero(this.value)">.</button></td>
+					<td><button onclick="calculadora()">=</button></td>
+					<td><button onclick="limparCalc(this.value)">Limpar</button></td>
+				</tr>
 		</table>
 	</div>
 
