@@ -1,0 +1,66 @@
+table,th,td{
+	border: 1px solid black;
+	font-size: 1.2em;
+	text-align: center;		
+}
+
+#calculadora{
+	border: 1px solid black;
+}
+
+#calculadora td{
+	border: 0px solid black;
+	padding: 2px;
+	font-size: 0.9em;
+}
+
+td,th{
+	padding: 10px;
+}
+
+#Q1,#Q2,#Q3,#Q4,#Q5,#Q6{
+	border: 1px solid black;
+	padding: 25px;
+	width: 28%;
+	float: left;
+	margin: 5px;
+}
+
+.centralizar{
+	text-align: center;
+}
+
+.pull-right{
+	float: right;
+}
+
+span{
+	font-size: 1.5em;
+}
+
+#ErrosQ1{
+	color: red;
+	font-size: 1em;
+}
+
+button{
+	font-size: 1.2em;
+	padding: 10px 10px 10px 10px;
+}
+
+select{
+	margin-left: 105px;
+}
+
+#numeroUsuario{
+	display: block;
+	margin-bottom: 15px;
+}
+
+#inputPc{
+	font-size: 0.9em;
+}
+
+#resultadoJogo{
+	color: green;
+}

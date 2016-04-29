@@ -1,0 +1,177 @@
+<html>
+<head>
+	<title>Lab 1 JS</title>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="lab1style.css">
+
+</head>
+
+<body>
+
+<h1 class='centralizar'>Laboratorio 1: Javascript</h1>
+
+<div class="centralizar">
+	<h4>Instituto Federal de Ciência, Tecnologia e Educação do Maranhão - IFMA</h4>
+	<h4>Vitor Daniel V. Queiroz - SI1221030-21</h4>
+	<h4>Disciplina: Linguagem de Programaçao Web</h4>
+</div>
+
+	<div id="Q1">
+
+		<h2> Questão 1</h2>
+		<table>
+			<th>Especificação</th>
+			<th>Código</th>
+			<th>Preço</th>
+			<tr>
+				<td>Cachorro Quente</td>
+				<td>100</td>
+				<td>1,20</td>
+			</tr>
+			<tr>
+				<td>Bauru simples</td>
+				<td>101</td>
+				<td>1,30</td>
+			</tr>
+			<tr>
+				<td>Bauru com ovo</td>
+				<td>102</td>
+				<td>1,50</td>
+			</tr>
+			<tr>
+				<td>Hamburguer</td>
+				<td>103</td>
+				<td>1,20</td>
+			</tr>
+			<tr>
+				<td>CheeseBurger</td>
+				<td>104</td>
+				<td>1,30</td>
+			</tr>
+			<tr>
+				<td>Refrigerante</td>
+				<td>105</td>
+				<td>1,00</td>
+			</tr>
+		</table>
+
+		<br>
+			<span id="ErrosQ1"></span>
+		<br><br>
+		<span> Codigo do Item: </span> <input id="cdgItem" type="number"></input> <br><br>
+		<span> Quantidade Item: </span> <input id="qtdItem" type="number"></input> <br><br>
+		<button id="btnQ1"> Calcular </button><br><br>
+
+		</span><span id="valorLanche"></span>
+
+	</div>
+
+	<div id="Q2">
+		<h2> Questão 2</h2>
+
+		<span> Numero 1: </span> <input id="num1" type="number"></input> <br><br>
+		<span> Numero 2: </span> <input id="num2" type="number"></input> <br><br>
+		<button id="btnQ2"> Gerar Tabela </button><br><br>
+
+		<table>
+			<th>Operação</th>
+			<th>Valor</th>
+			<tr id="linhaSoma">
+				<td id="operacaoSoma"></td>
+				<td id="resultadoSoma"></td>
+			</tr>
+			<tr id="linhaMult">
+				<td id="operacaoMult"></td>
+				<td id="resultadoMult"></td>
+			</tr>
+			<tr id="linhaDiv">
+				<td id="operacaoDiv"></td>
+				<td id="resultadoDiv"></td>
+			</tr>
+			<tr id="linhaRest">
+				<td id="operacaoRest"></td>
+				<td id="resultadoRest"></td>
+			</tr>
+
+		</table>
+	</div>
+
+	<div id="Q3">
+		<h2> Questão 3</h2>
+
+		<form>
+			<span> Quantidade(KhW): </span> <input id="qtdKhw" type="number"></input> <br><br>
+			<span> Valor Unit.(KhW): </span> <input id="valorUn" type="number"></input> <br><br>
+			<button type="button" id="btnQ3"> Calcular Conta</button>
+		</form>
+
+		<span id="valorConta"></span>
+
+	</div>
+
+	<div id="Q4">
+		<h2> Questão 4</h2>
+
+		<input id="data" type="date"></input><br>
+
+		<span id="dataExtenso"></span>
+
+	</div>
+
+	<div id="Q5">
+		<h2> Questão 5</h2>
+		<input readonly id="resultadoCalc"> </input><br><br>
+		<select class="btnSetNumero">
+			<option>+</option>
+			<option>-</option>
+			<option>/</option>
+			<option>*</option>
+		</select>
+		<table id="calculadora">
+				<tr>
+					<td><button value='1' class="btnSetNumero">1</button></td>
+					<td><button value='2' class="btnSetNumero">2</button></td>
+					<td><button value='3' class="btnSetNumero">3</button><br></td>
+				</tr>
+				<tr>
+					<td><button value='4' class="btnSetNumero">4</button></td>
+					<td><button value='5' class="btnSetNumero">5</button></td>
+					<td><button value='6' class="btnSetNumero">6</button></td><br>
+				</tr>
+				<tr>
+					<td><button value='7' class="btnSetNumero">7</button></td>
+					<td><button value='8' class="btnSetNumero">8</button></td>
+					<td><button value='9' class="btnSetNumero">9</button></td><br>
+				</tr>
+				<tr>
+					<td><button value='0'  class="btnSetNumero">0</button></td>
+					<td><button value='.' class="btnSetNumero">.</button></td>
+					<td><button id="btnQ5">=</button></td>
+					<td><button id="btnLimpar">Limpar</button></td>
+				</tr>
+		</table>
+	</div>
+
+	<div id="Q6">
+		<h2> Questão 6</h2>
+		<span> Escolha: </span><br>
+		<button  id="btnQ6" value="par">Par </button> ou 
+		<button  id="btnQ6" value="impar"> Impar</button><br>
+
+		<div id='inputUsuario'></div>
+		<span id="inputPc"></span>
+		<div id='resultadoJogo'></div>
+		<div id='placarJogo'>
+			<div class="centralizar"> <span>Placar</span> </div>
+			<div class="centralizar" id="contVitoriasUser"></div>
+			<div class="centralizar" id="contVitoriasPC"></div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+	
+<script type="text/javascript" src="Lab1JS.js"></script>
+
