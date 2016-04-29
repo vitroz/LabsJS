@@ -1,7 +1,15 @@
 table,th,td{
 	border: 1px solid black;
 	font-size: 1.2em;
-	text-align: center;		
+	text-align: center;
+}
+
+#tabelaOperacoes{
+	font-size: 0.9em;
+}
+
+#tabelaOperacoes td{
+	padding: 5px;
 }
 
 #calculadora{

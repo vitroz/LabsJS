@@ -101,22 +101,13 @@ document.getElementById("data").onchange = function() {
 	 converterData();
 };
 
-document.getElementsByClassName("btnSetNumero").onclick = function() {
-	console.log('oi');
-	var valorBotao = document.getElementsByClassName("btnSetNumero").value;
-	 function setNumero(valorBotao){
-	 	document.getElementById("resultadoCalc").value += valorBotao + '';
-	 }
-	 setNumero(valorBotao);
-};
+ function setNumero(valorBotao){
+ 	document.getElementById("resultadoCalc").value += valorBotao + '';
+ }
 
-document.getElementById("btnLimpar").onclick = function() {
-	var limpeza = document.getElementsByClassName("btnSetNumero").value;
-	 function limparCalc(limpeza){
-	 	document.getElementById("resultadoCalc").value = '';
-	 }
-	 limparCalc(limpeza);
-};
+ function limparCalc(limpeza){
+ 	document.getElementById("resultadoCalc").value = '';
+ }
 
 document.getElementById("btnQ5").onclick = function(event) {
 
@@ -136,8 +127,9 @@ document.getElementById("btnQ5").onclick = function(event) {
 	 calculadora();
 };
 
-document.getElementById("btnQ6").onclick = function() {
- 
+
+ var opcao = document.getElementById("btnPar").value;
+
  function checkParOuImpar(numero){
  	if(numero%2 == 0){
  		return true;
@@ -229,5 +221,3 @@ document.getElementById("btnQ6").onclick = function() {
 
 	}	
   }
-};
-
