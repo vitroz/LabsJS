@@ -1,10 +1,9 @@
- 
-document.getElementById("btnQ1").onclick = function() {
+ $( "#btnQ1" ).click(function() {
 	function calcularLanche(){
-	 	document.getElementById("ErrosQ1").textContent = '';
-	 	document.getElementById("valorLanche").textContent = '';
-	 	var cdgItem = document.getElementById('cdgItem').value;
-	 	var qtdItem = document.getElementById('qtdItem').value;
+	 	$("#ErrosQ1").text("");
+	 	$("#valorLanche").text("");
+	 	var cdgItem = $('#cdgItem').val();
+	 	var qtdItem = $('#qtdItem').val();
 	 	if(cdgItem != '' && qtdItem != '' && qtdItem > 0){
 
 		 	var arrayLanches = { "100": 1.20,
@@ -17,49 +16,50 @@ document.getElementById("btnQ1").onclick = function() {
 
 		 	if(arrayLanches[cdgItem] != undefined){
 		 		var valorLanche = arrayLanches[cdgItem].toFixed(2) * qtdItem;
-		 		document.getElementById("valorLanche").textContent = 'Valor a ser pago: ' +valorLanche.toFixed(2) + ' reais';
+		 		$("#valorLanche").text('Valor a ser pago: ' +valorLanche.toFixed(2) + ' reais');
 		 	}else{
-		 		document.getElementById("ErrosQ1").textContent = 'Codigo de lanche não cadastrado';
+		 		$("#ErrosQ1").text('Codigo de lanche não cadastrado');
 		 	}
 	 	}else{
-	 		document.getElementById("ErrosQ1").textContent = 'Preencha os campos Corretamente.'	 		
+	 		$("#ErrosQ1").text('Preencha os campos Corretamente.');
 	 	}
 	 }
 	 calcularLanche();	
-};
+});
 
-document.getElementById("btnQ2").onclick = function() {
-	 function tabelaOperacoes(){
-	 	var num1 = document.getElementById('num1').value;
-	 	var num2 = document.getElementById('num2').value;
+  $( "#btnQ2" ).click(function() {
+	function tabelaOperacoes(){
+	 	var num1 = $('#num1').val();
+	 	var num2 = $('#num2').val();
 
 	 	if(num1 != '' && num2 != ''){
 		 	num1 = parseFloat(num1);
 		 	num2 = parseFloat(num2);
 
-		 	document.getElementById("operacaoSoma").textContent = num1 + ' + ' + num2;
-		 	document.getElementById("resultadoSoma").textContent = num1 + num2;
+		 	$("#operacaoSoma").text(num1 + ' + ' + num2) 
+		 	$("#resultadoSoma").text(num1 + num2) 
 
-		 	document.getElementById("operacaoMult").textContent = num1 + ' * ' + num2;
-		 	document.getElementById("resultadoMult").textContent = num1 * num2;
+		 	$("#operacaoMult").text(num1 + ' * ' + num2) 
+		 	$("#resultadoMult").text(num1 * num2) 
 
-		 	document.getElementById("operacaoDiv").textContent = num1 + ' / ' + num2;
-		 	document.getElementById("resultadoDiv").textContent = num1 / num2;
+		 	$("#operacaoDiv").text(num1 + ' / ' + num2) 
+		 	$("#resultadoDiv").text(num1 / num2) 
 
-		 	document.getElementById("operacaoRest").textContent = num1 + ' % ' + num2;
-		 	document.getElementById("resultadoRest").textContent = num1 % num2;	 		
+		 	$("#operacaoRest").text(num1 + ' % ' + num2) 
+		 	$("#resultadoRest").text(num1 % num2) 	 		
 	 	}else{
 	 		alert('Preencha todos os campos com os numeros para gerar a Tabela de Operações.');
 	 	}
 	 }
 	 tabelaOperacoes();
-};
 
-document.getElementById("btnQ3").onclick = function() {
-	 function calcularConta(){
-	 	document.getElementById("valorConta").textContent = '';
-		 qtdKhw = document.getElementById('qtdKhw').value;
-		 valorUn = document.getElementById('valorUn').value;
+  });
+
+  $( "#btnQ3" ).click(function() {
+  	 function calcularConta(){
+	 	$("#valorConta").text('');
+		 qtdKhw = $('#qtdKhw').val();
+		 valorUn = $('#valorUn').val();
 
 	 	if(qtdKhw != '' && valorUn != ''){
 	 		qtdKhw = parseFloat(qtdKhw);
@@ -74,19 +74,20 @@ document.getElementById("btnQ3").onclick = function() {
 
 	 		valorConta = qtdKhw * valorUn;
 	 		
-	 		document.getElementById("valorConta").textContent = 'Valor da conta: ' +valorConta.toFixed(2) + ' reais';
+	 		$("#valorConta").text('Valor da conta: ' +valorConta.toFixed(2) + ' reais');
 
 	 	}else{
-	 		alert('Preencha todos os campos com os numeros para calcular a conta.')
+	 		alert('Preencha todos os campos com os numeros para calcular a conta.');
 	 	}
 	 }
 	 calcularConta();
-};
+  });
 
 /*Questão 4*/
-document.getElementById("data").onchange = function() {
-	 function converterData(){
-	 	data = document.getElementById('data').value;
+
+  $( "#data" ).change(function() {
+  	function converterData(){
+	 	data = $('#data').val();
 	 	data = data.split('-');
 	 	dia = data[2];
 	 	mes = data[1];
@@ -96,23 +97,24 @@ document.getElementById("data").onchange = function() {
 	 				'06' : 'Junho', '07' : 'Julho', '08' : 'Agosto', '09' : 'Setembro', '10' : 'Outubro', 
 	 				'11' : 'Novembro','12' : 'Dezembro',}
 
-	 	document.getElementById("dataExtenso").textContent = dia + ' de ' + dicMeses[mes] + ' de ' + ano;
+	 	$("#dataExtenso").text(dia + ' de ' + dicMeses[mes] + ' de ' + ano) 
 	 }
 	 converterData();
-};
+  });
+
 
  function setNumero(valorBotao){
- 	document.getElementById("resultadoCalc").value += valorBotao + '';
+ 	$("#resultadoCalc").val($("#resultadoCalc").val() + valorBotao + '');
  }
 
  function limparCalc(limpeza){
- 	document.getElementById("resultadoCalc").value = '';
+ 	$("#resultadoCalc").val('');
  }
 
-document.getElementById("btnQ5").onclick = function(event) {
+ $( "#btnQ5" ).click(function() {
 
-	 function calculadora(){
-	 	var operacao = document.getElementById("resultadoCalc").value;
+ 	function calculadora(){
+	 	var operacao = $("#resultadoCalc").val();
 
 	 	try{
 	 		resultado = eval(operacao);
@@ -122,13 +124,15 @@ document.getElementById("btnQ5").onclick = function(event) {
 		    }
 	 	}
 
-	 	document.getElementById("resultadoCalc").value = resultado;
+	 	$("#resultadoCalc").val(resultado);
 	 }
 	 calculadora();
-};
 
+ });
 
- var opcao = document.getElementById("btnPar").value;
+/*Questao 6*/
+
+ var opcao = $("#btnPar").val();
 
  function checkParOuImpar(numero){
  	if(numero%2 == 0){
@@ -143,81 +147,73 @@ document.getElementById("btnQ5").onclick = function(event) {
 
  function ParOuImpar(opcao){
 
- 	document.getElementById('inputUsuario').innerHTML = '';
+ 	$('#inputUsuario').html('');
 
  	var usuarioEscolha = '';
  	var pc = '';
 
  	if(opcao == 'par'){
  		usuarioEscolha = 'par';
- 		document.getElementById("btnPar").style["background-color"] = 'C5C5C5';
- 		document.getElementById("btnImpar").style["background-color"] = '';
+ 		$("#btnPar").css("background-color",'C5C5C5');
+ 		$("#btnImpar").css("background-color", '');
  		pc = 'impar';
  	}else{
  		usuarioEscolha = 'impar'
- 		document.getElementById("btnPar").style["background-color"] = '';
- 		document.getElementById("btnImpar").style["background-color"] = 'C5C5C5';
+ 		$("#btnPar").css("background-color", '');
+ 		$("#btnImpar").css("background-color", 'C5C5C5');
  		pc = 'par';
  	}
 
 
- 	var div = document.getElementById('inputUsuario');
- 	var input = document.createElement('input');
- 	input.id = 'numeroUsuario';
+ 	var div = $('#inputUsuario');
+ 	$('#inputUsuario').append('<input type="number" id="numeroUsuario"></input>');
+ 	$('#inputUsuario').append('<span>Escolha um numero para Jogar:</span>');
+ 	$('#inputUsuario').append('<button id="jogar">Jogar</button>');
  	var span = document.createElement('span');
  	var button = document.createElement('button');
 
- 	span.innerHTML = 'Escolha um numero para Jogar:';
- 	input.innerHTML = '';
- 	input.type = 'number';
- 	button.innerHTML = 'Jogar';
-
- 	div.appendChild(span);
- 	div.appendChild(input);
- 	div.appendChild(button);
-
- 	button.onclick = function Jogar(){
- 		var numeroUsuario = document.getElementById("numeroUsuario").value;
+ 	$('#jogar').click(function Jogar(){
+ 		var numeroUsuario = $("#numeroUsuario").val();
  		if(numeroUsuario != ''){
 
 		 	var numeroPc = Math.floor((Math.random() * 999) + 0);
-		 	var numeroUsuario = document.getElementById("numeroUsuario").value;
+		 	var numeroUsuario = $("#numeroUsuario").val();
 		 	numeroUsuario = parseFloat(numeroUsuario);
 
-			document.getElementById("inputPc").textContent = 'Numero randômico escolhido pelo PC: ' + numeroPc;
+			$("#inputPc").text('Numero randômico escolhido pelo PC: ' + numeroPc); 
 			resultado = numeroUsuario + numeroPc;
-			document.getElementById("resultadoJogo").textContent = 'Soma: ' + numeroUsuario + ' + ' + numeroPc + ' = ' + resultado;
+			$("#resultadoJogo").text('Soma: ' + numeroUsuario + ' + ' + numeroPc + ' = ' + resultado); 
 
 
 			if(usuarioEscolha == 'par' && checkParOuImpar(resultado)){
 				alert('Usuario Venceu!!');
 				contVitoriasUser = contVitoriasUser + 1;
-				document.getElementById("contVitoriasUser").textContent = 'Você :' + contVitoriasUser; 
+				$("#contVitoriasUser").text('Você :' + contVitoriasUser); 
 			}else if(usuarioEscolha == 'impar' && !checkParOuImpar(resultado)){
 				alert('Usuario Venceu!!');
 				contVitoriasUser = contVitoriasUser + 1;
-				document.getElementById("contVitoriasUser").textContent = 'Você :' + contVitoriasUser; 
+				$("#contVitoriasUser").text('Você :' + contVitoriasUser);
 			}
 			
 			else{
 				alert('PC Venceu!!');
 				contVitoriasPC = contVitoriasPC + 1;
-				document.getElementById("contVitoriasPC").textContent = 'PC :' +contVitoriasPC; 
+				$("#contVitoriasPC").text('PC :' +contVitoriasPC);
 			}
 
 			if(contVitoriasUser == contVitoriasPC){
-				document.getElementById("Q6").style["background-color"] = "white";
-				document.getElementById("Q6").style["color"] = "black";
+				$("#Q6").css("background-color","white");
+				$("#Q6").css("color", "black");
 			}else if(contVitoriasUser > contVitoriasPC){
-				document.getElementById("Q6").style["background-color"] = "#66FF33"; //verde
+				$("#Q6").css("background-color", "#66FF33"); //verde
 			}else if(contVitoriasUser < contVitoriasPC){
-				document.getElementById("Q6").style["background-color"] = "#BB2828"; //vermelho
-				document.getElementById("Q6").style["color"] = "white"; //verde
+				$("#Q6").css("background-color", "#BB2828"); //vermelho
+				$("#Q6").css("color", "white"); //verde
 			}
 
  		}else{
  			alert('Informe um numero para jogar par ou impar.')
  		}
 
-	}	
+	});	
   }
