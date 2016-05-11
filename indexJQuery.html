@@ -122,7 +122,7 @@
 	<div id="Q5">
 		<h2> Questão 5</h2>
 		<input readonly id="resultadoCalc"> </input><br><br>
-		<select onclick="setNumero(this.value)">
+		<select class="setNumero">
 			<option>+</option>
 			<option>-</option>
 			<option>/</option>
@@ -130,23 +130,23 @@
 		</select>
 		<table id="calculadora">
 			<tr>
-				<td><button value='1' onclick="setNumero(this.value)">1</button></td>
-				<td><button value='2' onclick="setNumero(this.value)">2</button></td>
-				<td><button value='3' onclick="setNumero(this.value)">3</button><br></td>
+				<td><button value='1' class="setNumero">1</button></td>
+				<td><button value='2' class="setNumero">2</button></td>
+				<td><button value='3' class="setNumero">3</button><br></td>
 			</tr>
 			<tr>
-				<td><button value='4' onclick="setNumero(this.value)">4</button></td>
-				<td><button value='5' onclick="setNumero(this.value)">5</button></td>
-				<td><button value='6' onclick="setNumero(this.value)">6</button></td><br>
+				<td><button value='4' class="setNumero">4</button></td>
+				<td><button value='5' class="setNumero">5</button></td>
+				<td><button value='6' class="setNumero">6</button></td><br>
 			</tr>
 			<tr>
-				<td><button value='7' onclick="setNumero(this.value)">7</button></td>
-				<td><button value='8' onclick="setNumero(this.value)">8</button></td>
-				<td><button value='9' onclick="setNumero(this.value)">9</button></td><br>
+				<td><button value='7' class="setNumero">7</button></td>
+				<td><button value='8' class="setNumero">8</button></td>
+				<td><button value='9' class="setNumero">9</button></td><br>
 			</tr>
 			<tr>
-				<td><button value='0' onclick="setNumero(this.value)">0</button></td>
-				<td><button value='.' onclick="setNumero(this.value)">.</button></td>
+				<td><button value='0' class="setNumero">0</button></td>
+				<td><button value='.' class="setNumero">.</button></td>
 				<td><button id="btnQ5">=</button></td>
 				<td><button onclick="limparCalc(this.value)">Limpar</button></td>
 			</tr>

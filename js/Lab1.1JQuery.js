@@ -107,6 +107,10 @@
  	$("#resultadoCalc").val($("#resultadoCalc").val() + valorBotao + '');
  }
 
+ $('.setNumero').click(function(e){
+ 	setNumero(e.target.value);
+ });
+
  function limparCalc(limpeza){
  	$("#resultadoCalc").val('');
  }
